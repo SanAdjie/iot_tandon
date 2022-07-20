@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iot_tandon/screen/listcard_screen.dart';
 import 'package:iot_tandon/screen/register_screen.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_button.dart';
@@ -16,6 +17,12 @@ class _RegisterState extends State<LoginScreen> {
 
   late String email;
   late String password;
+
+  @override
+  void initState() {
+    // TODO: Digunakan Untuk Cek User Login
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +67,8 @@ class _RegisterState extends State<LoginScreen> {
                         ],
                       ),
                       ReusableButton(text: "Log In", ontap: (){
-                        //TODO : MASUKKAN SETSTATE
+                        //TODO : PERLU AUTENTIFIKASI
+                        Navigator.pushNamed(context, ListcardScreen.id);
                       }),
                     ],
                   )),

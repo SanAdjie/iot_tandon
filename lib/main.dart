@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iot_tandon/screen/card_screen.dart';
 import 'package:iot_tandon/screen/carddetail_screen.dart';
+import 'package:iot_tandon/screen/listcard_screen.dart';
 import 'package:iot_tandon/screen/loading_screen.dart';
 import 'package:iot_tandon/screen/register_screen.dart';
 import 'package:iot_tandon/screen/login_screen.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         RegisterScreen.id: (context) => RegisterScreen(),
         LoginScreen.id: (context) => LoginScreen(),
         CardSreen.id: (context) => CardSreen(),
-        CardDetailScreen.id: (context) => CardDetailScreen()
+        CardDetailScreen.id: (context) => CardDetailScreen(),
+        ListcardScreen.id: (context) => ListcardScreen()
       },
     );
   }
