@@ -12,39 +12,58 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+
+  late String nama;
+  late String email;
+  late String password;
+  late String repassword;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Expanded(
-        child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text("Daftar", style: kStyleHeader1),
-                const SizedBox(height: 20),
-                ReusableInput(label: "email", rahasia: false, onChanged: (value){}, jenisKeyboard: "email"),
-                const SizedBox(height: 15),
-                ReusableInput(label: "email", rahasia: false, onChanged: (value){}, jenisKeyboard: "biasa"),
-                const SizedBox(height: 15),
-                ReusableInput(label: "password", rahasia: true, onChanged: (value){}, jenisKeyboard: "biasa"),
-                const SizedBox(height: 15),
-                ReusableInput(label: "Re-password", rahasia: true, onChanged: (value){}, jenisKeyboard: "biasa"),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text("Sudah Punya Akun ? "),
-                    TextButton(onPressed: (){
-                      Navigator.pop(context);
-                    }, child: const Text("Login"))
-                  ],
-                ),
-                ReusableButton(text: "Daftar", ontap: (){
-                  //TODO : MASUKKAN SETSTATE
-                }),
-              ],
-            )),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: <Widget> [
+            Expanded(
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text("Daftar", style: kStyleHeader1),
+                  const SizedBox(height: 20),
+                  ReusableInput(label: "Name", rahasia: false, onChanged: (value){
+                    nama = value;
+                  }, jenisKeyboard: "email"),
+                  const SizedBox(height: 15),
+                  ReusableInput(label: "Email", rahasia: false, onChanged: (value){
+                    password = value;
+                  }, jenisKeyboard: "biasa"),
+                  const SizedBox(height: 15),
+                  ReusableInput(label: "Password", rahasia: true, onChanged: (value){
+                    password = value;
+                  }, jenisKeyboard: "biasa"),
+                  const SizedBox(height: 15),
+                  ReusableInput(label: "Re-password", rahasia: true, onChanged: (value){
+                    repassword = value;
+                  }, jenisKeyboard: "biasa"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text("Sudah Punya Akun ? "),
+                      TextButton(onPressed: (){
+                        Navigator.pop(context);
+                      }, child: const Text("Login"))
+                    ],
+                  ),
+                  ReusableButton(text: "Daftar", ontap: (){
+                    //TODO : MASUKKAN SETSTATE
+                  }),
+                ],
+              ),
+            ),
+          )],
+        ),
       ),
     );
   }

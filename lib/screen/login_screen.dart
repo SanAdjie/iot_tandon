@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iot_tandon/main.dart';
 import 'package:iot_tandon/screen/register_screen.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_button.dart';
@@ -43,9 +44,9 @@ class _RegisterState extends State<LoginScreen> {
                     children: <Widget>[
                       const Text("Log in", style: kStyleHeader1),
                       const SizedBox(height: 20),
-                      ReusableInput(label: "email", rahasia: false, onChanged: (value){}, jenisKeyboard: "email"),
+                      ReusableInput(label: "Email", rahasia: false, onChanged: (value){}, jenisKeyboard: "email"),
                       const SizedBox(height: 15),
-                      ReusableInput(label: "password", rahasia: true, onChanged: (value){}, jenisKeyboard: "biasa"),
+                      ReusableInput(label: "Password", rahasia: true, onChanged: (value){}, jenisKeyboard: "biasa"),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[

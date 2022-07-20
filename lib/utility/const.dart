@@ -4,5 +4,7 @@ const kBGBiru = Color(0xFF366ED8);
 
 const kBGHitam = Colors.black;
 
+const kBGAbu2 = Color(0xFFF2F3F3);
+
 const kStyleHeader1 = TextStyle(fontSize: 35, fontWeight: FontWeight.w700);
 
