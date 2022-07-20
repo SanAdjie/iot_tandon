@@ -1,7 +1,6 @@
-# iot_tandon
+# IOT Tandon
 
-Project Kuliah
+## Deskripsi  
 
-## Getting Started
-
-Digunakan untuk membuat project IoT
+Digunakan untuk membuat pengabdian IOT Universitas Negeri Malang. 
+Diampu oleh Bapak Afnan Habibi. 
