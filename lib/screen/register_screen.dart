@@ -33,18 +33,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const Text("Daftar", style: kStyleHeader1),
                   const SizedBox(height: 20),
                   ReusableInput(label: "Name", rahasia: false, onChanged: (value){
+                    print(value);
                     nama = value;
                   }, jenisKeyboard: "email"),
-                  const SizedBox(height: 15),
+                  kSpasiInput,
                   ReusableInput(label: "Email", rahasia: false, onChanged: (value){
+                    print(value);
                     password = value;
                   }, jenisKeyboard: "biasa"),
-                  const SizedBox(height: 15),
+                  kSpasiInput,
                   ReusableInput(label: "Password", rahasia: true, onChanged: (value){
+                    print(value);
                     password = value;
                   }, jenisKeyboard: "biasa"),
-                  const SizedBox(height: 15),
+                  kSpasiInput,
                   ReusableInput(label: "Re-password", rahasia: true, onChanged: (value){
+                    print(value);
                     repassword = value;
                   }, jenisKeyboard: "biasa"),
                   Row(
