@@ -67,7 +67,10 @@ class _RegisterState extends State<LoginScreen> {
                         ],
                       ),
                       ReusableButton(text: "Log In", ontap: (){
-                        //TODO : PERLU AUTENTIFIKASI
+                        //TODO : LOGIN AUTH
+                        //TODO : MODAL PROGRESS HUD
+                        //TODO : ASYNC-AWAIT
+                        //TODO : TRY-CATCH
                         Navigator.pushNamed(context, ListcardScreen.id);
                       }),
                     ],

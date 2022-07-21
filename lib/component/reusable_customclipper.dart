@@ -4,7 +4,6 @@ class CustomClipperSaya extends CustomClipper<Path>{
 
   @override
   Path getClip(Size size){
-      debugPrint(size.width.toString());
       var path = Path();
       path.lineTo(0, size.height);
       var startSatu = Offset(size.width / 5, size.height);

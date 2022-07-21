@@ -57,7 +57,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ],
                   ),
                   ReusableButton(text: "Daftar", ontap: (){
-                    //TODO : MASUKKAN SETSTATE
+                    //TODO : PERLU REGISTER AUTH
+                    Navigator.pop(context);
                   }),
                 ],
               ),
