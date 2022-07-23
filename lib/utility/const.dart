@@ -10,8 +10,10 @@ const kBGPutih = Color(0xFFFFFFFF);
 
 const kSpasiInput = SizedBox(height: 15);
 
+const kSpasiInput2 = SizedBox(height: 15);
+
 const kStyleHeader1 = TextStyle(fontSize: 35, fontWeight: FontWeight.w700);
 
-const kStyleText1 = TextStyle(
-    fontSize: 30, fontWeight: FontWeight.w900, textBaseline: TextBaseline.alphabetic
-);
+const kStyleText1 = TextStyle(fontSize: 30, fontWeight: FontWeight.w900, textBaseline: TextBaseline.alphabetic);
+
+const kStyleText2 = TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700);

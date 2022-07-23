@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iot_tandon/utility/const.dart';
 
 class ReusableListCard extends StatelessWidget {
   //Property
@@ -13,9 +14,9 @@ class ReusableListCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        margin: const EdgeInsets.all(15.0),
+        margin: const EdgeInsets.fromLTRB(15, 0, 15, 15),
         decoration: BoxDecoration(
-            color: Color(0xFFF2F3F3),
+            color: kBGAbu2,
             borderRadius: BorderRadius.circular(10.0)),
         child: child,
       ),

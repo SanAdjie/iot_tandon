@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iot_tandon/component/reusable_contectlistcard.dart';
+import 'package:iot_tandon/component/reusable_contentlistcard.dart';
 import 'package:iot_tandon/component/reusable_customclipper.dart';
+import 'package:iot_tandon/screen/carddetail_screen.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
 import 'package:iot_tandon/component/reusable_listcard.dart';
@@ -20,6 +21,7 @@ class _ListCardState extends State<ListcardScreen> {
       onWillPop: () async => false,
       child: SafeArea(
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             body:  Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -35,7 +37,7 @@ class _ListCardState extends State<ListcardScreen> {
                         child: Column(
                           children: <Widget>[
                             ReusableCard(iconLead: Icon(Icons.device_thermostat, size: 40),
-                              title: "Suhu", iconTrail: Icons.logout, description: "25°C", ontap: (){
+                              title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: (){
                               Navigator.pop(context);
                               //TODO : AUTH LOGOUT
                               },),
@@ -54,7 +56,7 @@ class _ListCardState extends State<ListcardScreen> {
                       )
                     ]
                   )
-                ) ,
+                ),
                 Expanded(
                   flex: 6,
                   child: Column(
@@ -67,9 +69,15 @@ class _ListCardState extends State<ListcardScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            Expanded(child: ReusableListCard(onPress: (){},
+                            Expanded(child: ReusableListCard(onPress: (){
+                              //TODO: DETAIL TANDON - Perlu Data Masing2
+                              Navigator.pushNamed(context, CardDetailScreen.id);
+                            },
                                 child: ReusableContentListCard(label: "Tandon Alpha", namaIcon: Icons.water))),
-                            Expanded(child: ReusableListCard(onPress: (){},
+                            Expanded(child: ReusableListCard(onPress: (){
+                              Navigator.pushNamed(context, CardDetailScreen.id);
+                              //TODO: DETAIL TANDON - Perlu Data Masing2
+                            },
                                 child: ReusableContentListCard(label: "Tandon Beta", namaIcon: Icons.water)))
                           ],
                         ),
@@ -78,9 +86,15 @@ class _ListCardState extends State<ListcardScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            Expanded(child: ReusableListCard(onPress: (){},
+                            Expanded(child: ReusableListCard(onPress: (){
+                              Navigator.pushNamed(context, CardDetailScreen.id);
+                              //TODO: DETAIL TANDON - Perlu Data Masing2
+                            },
                                 child: ReusableContentListCard(label: "Tandon Charlie", namaIcon: Icons.water))),
-                            Expanded(child: ReusableListCard(onPress: (){},
+                            Expanded(child: ReusableListCard(onPress: (){
+                              Navigator.pushNamed(context, CardDetailScreen.id);
+                              //TODO: DETAIL TANDON - Perlu Data Masing2
+                            },
                                 child: ReusableContentListCard(label: "Tandon Delta", namaIcon: Icons.water)))
                           ],
                         ),
@@ -88,6 +102,7 @@ class _ListCardState extends State<ListcardScreen> {
                     ],
                   )
                 ),
+
               ],
             ),
           )

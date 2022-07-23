@@ -39,7 +39,9 @@ class _RegisterState extends State<LoginScreen> {
                   decoration: BoxDecoration(
                     color: kBGBiru,
                     borderRadius: BorderRadius.vertical(bottom: Radius.elliptical(MediaQuery.of(context).size.width, 140))),
-                    child: null),
+                    child: Center(
+                      child: Image.asset("images/logoUM.png", width: 150, height: 120,),
+                    )),
               ),
               Expanded(
                 flex: 2,
@@ -67,10 +69,8 @@ class _RegisterState extends State<LoginScreen> {
                         ],
                       ),
                       ReusableButton(text: "Log In", ontap: (){
-                        //TODO : LOGIN AUTH
-                        //TODO : MODAL PROGRESS HUD
-                        //TODO : ASYNC-AWAIT
-                        //TODO : TRY-CATCH
+                        //TODO : LOGIN AUTH, ASYNC-AWAIT, TRY-CATCH
+                        //TODO : MODAL PROGRESS HUD. Gagal : Alert
                         Navigator.pushNamed(context, ListcardScreen.id);
                       }),
                     ],

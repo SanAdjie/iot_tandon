@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iot_tandon/utility/const.dart';
 
 class ReusableContentListCard extends StatelessWidget {
 
@@ -15,8 +16,8 @@ class ReusableContentListCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(namaIcon, size: 80),
-        SizedBox(height: 10),
-        Text(label, style: TextStyle(fontSize: 18.0),)
+        kSpasiInput2,
+        Text(label, style: kStyleText2,)
       ],
     );
   }
