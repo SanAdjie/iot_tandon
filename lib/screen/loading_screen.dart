@@ -15,6 +15,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState(){
     super.initState();
+    //TODO : AUTH CHECK
+    //TODO : ANIMATION CONTROL
     Future.delayed(const Duration(seconds: 3), (){
       Navigator.popAndPushNamed(context, LoginScreen.id);
     });

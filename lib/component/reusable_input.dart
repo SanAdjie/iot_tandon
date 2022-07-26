@@ -17,6 +17,8 @@ class ReusableInput extends StatelessWidget {
       style: TextStyle(color: kBGHitam),
       obscureText: rahasia,
       decoration: InputDecoration(
+          disabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red)),
           isDense: true,
           contentPadding: EdgeInsets.all(15),
           filled: true,

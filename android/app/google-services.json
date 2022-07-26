@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "938428253647",
+    "project_id": "tandon-iot-b75b0",
+    "storage_bucket": "tandon-iot-b75b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938428253647:android:b75c586d1d8d3cc6003eba",
+        "android_client_info": {
+          "package_name": "com.sanadjie.iot_tandon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938428253647-9g3u6vm1d3un1s4rin8lnt0on7n02a8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC6Rz4nl5yLl7fsea8EdqMUREavQ-RdE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938428253647-9g3u6vm1d3un1s4rin8lnt0on7n02a8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

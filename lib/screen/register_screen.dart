@@ -20,9 +20,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
           children: <Widget> [
             Expanded(
             child: Container(
@@ -52,6 +52,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: <Widget>[
                       const Text("Sudah Punya Akun ? "),
                       TextButton(onPressed: (){
+                        //TODO : ALERT PASSWORD MINIMAL 6 CHAR
+                        //TODO : ALERT REGISTER BERHASIL
                         Navigator.pop(context);
                       }, child: const Text("Login"))
                     ],
