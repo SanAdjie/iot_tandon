@@ -31,19 +31,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Text("Daftar", style: kStyleHeader1),
-                  const SizedBox(height: 20),
+                  kSpasi3,
                   ReusableInput(label: "Name", rahasia: false, onChanged: (value){
                     nama = value;
                   }, jenisKeyboard: "email"),
-                  kSpasiInput,
+                  kSpasi2,
                   ReusableInput(label: "Email", rahasia: false, onChanged: (value){
                     password = value;
                   }, jenisKeyboard: "biasa"),
-                  kSpasiInput,
+                  kSpasi2,
                   ReusableInput(label: "Password", rahasia: true, onChanged: (value){
                     password = value;
                   }, jenisKeyboard: "biasa"),
-                  kSpasiInput,
+                  kSpasi2,
                   ReusableInput(label: "Re-password", rahasia: true, onChanged: (value){
                     repassword = value;
                   }, jenisKeyboard: "biasa"),

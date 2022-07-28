@@ -19,10 +19,10 @@ class _ListCardState extends State<ListcardScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body:  SafeArea(
-          child: Column(
+      child: SafeArea(
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          body:  Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Expanded(

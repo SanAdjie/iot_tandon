@@ -28,9 +28,9 @@ class _RegisterState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
+      child: SafeArea(
+        child: Scaffold(
+          body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Expanded(
@@ -50,13 +50,13 @@ class _RegisterState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(height: 10),
+                      kSpasi1,
                       Text("Login", style: kStyleHeader1),
-                      kSpasiInput,
+                      kSpasi2,
                       ReusableInput(label: "Email", rahasia: false, onChanged: (value){
                         email = value;
                       }, jenisKeyboard: "email"),
-                      kSpasiInput,
+                      kSpasi2,
                       ReusableInput(label: "Password", rahasia: true, onChanged: (value){
                         password = value;
                       }, jenisKeyboard: "biasa"),
@@ -77,7 +77,7 @@ class _RegisterState extends State<LoginScreen> {
                     ],
                   )),
               ),
-              SizedBox(height: 20)
+              kSpasi3
             ],
           ),
         ),

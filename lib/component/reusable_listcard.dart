@@ -5,9 +5,10 @@ class ReusableListCard extends StatelessWidget {
   //Property
   final Widget? child;
   final Function()? onPress;
+  final IconData? icon;
 
   //Constructor
-  ReusableListCard({this.child, this.onPress});
+  ReusableListCard({this.child, this.onPress, this.icon });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class ReusableListCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: kBGAbu2,
             borderRadius: BorderRadius.circular(10.0)),
-        child: child,
+        child: child
       ),
     );
   }

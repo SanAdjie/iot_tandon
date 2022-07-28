@@ -16,7 +16,7 @@ class ReusableContentListCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(namaIcon, size: 80),
-        kSpasiInput2,
+        kSpasi2,
         Text(label, style: kStyleText2,)
       ],
     );

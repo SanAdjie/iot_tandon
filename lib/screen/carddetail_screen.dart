@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iot_tandon/component/reusable_customclipper.dart';
-import 'package:iot_tandon/component/reusable_listcard.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
+import 'package:iot_tandon/component/reusable_carddetail.dart';
 
 class CardDetailScreen extends StatefulWidget {
 
@@ -14,9 +14,9 @@ class CardDetailScreen extends StatefulWidget {
 class _CardDetailScreenState extends State<CardDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           children: <Widget>[
             Expanded(
                 flex: 2,
@@ -57,9 +57,12 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
                     child: Text("Tandon Alpha", style: kStyleText1)),
-                  Expanded(child: ReusableListCard()),
-                  Expanded(child: ReusableListCard()),
-                  Expanded(child: ReusableListCard())
+                  Expanded(
+                      child: ReusableCardDetail(tulisanBawah: "volume", status: "59%", icon: Icons.opacity,)),
+                  Expanded(
+                      child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining,)),
+                  Expanded(
+                      child: ReusableCardDetail(tulisanBawah: "", status: "OFF", icon: Icons.memory,))
                 ],
               ))
           ],
