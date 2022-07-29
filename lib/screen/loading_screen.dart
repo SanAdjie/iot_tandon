@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iot_tandon/screen/login_screen.dart';
 import 'package:iot_tandon/utility/const.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class LoadingScreen extends StatefulWidget {
 
@@ -15,11 +16,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState(){
     super.initState();
-    //TODO : AUTH CHECK
-    //TODO : ANIMATION CONTROL
-    Future.delayed(const Duration(seconds: 3), (){
-      Navigator.popAndPushNamed(context, LoginScreen.id);
+
+    Firebase.initializeApp().whenComplete((){
+      print("Selesai 🌚 : Firebase-Initialize");
+      setState((){});
     });
+
+
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.popAndPushNamed(context, LoginScreen.id);}
+    );
   }
 
   @override

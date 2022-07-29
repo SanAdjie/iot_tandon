@@ -3,6 +3,8 @@ import 'package:iot_tandon/component/reusable_customclipper.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
 import 'package:iot_tandon/component/reusable_carddetail.dart';
+import 'package:iot_tandon/utility/networking.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CardDetailScreen extends StatefulWidget {
 
@@ -12,6 +14,14 @@ class CardDetailScreen extends StatefulWidget {
 }
 
 class _CardDetailScreenState extends State<CardDetailScreen> {
+
+  //Property
+  late var dataJarak;
+
+  final akun = FirebaseAuth.instance;
+
+  //Method
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,9 +40,9 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                           child: Column(
                             children: <Widget>[
                               ReusableCard(iconLead: Icon(Icons.device_thermostat, size: 40),
-                                title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: (){
-                                  Navigator.pop(context);
-                                  //TODO : AUTH LOGOUT
+                                title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: () async{
+                                await akun.signOut();
+                                Navigator.pop(context);
                                 },),
                               ReusableCard(iconLead: Icon(Icons.sunny, size: 40),
                                 title: "Cuaca", description: "Hujan",)
@@ -58,7 +68,10 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                     padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
                     child: Text("Tandon Alpha", style: kStyleText1)),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "volume", status: "59%", icon: Icons.opacity,)),
+                      child: ReusableCardDetail(tulisanBawah: "volume", status: "59%", icon: Icons.opacity, onPress: (){
+                        Network dataRealtime = Network("https://tandon-iot-b75b0-default-rtdb.asia-southeast1.firebasedatabase.app/Tandon-IoT.json");
+                        dataRealtime.getData();
+                      },)),
                   Expanded(
                       child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining,)),
                   Expanded(

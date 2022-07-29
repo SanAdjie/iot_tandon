@@ -20,6 +20,8 @@ const kStyleText1 = TextStyle(fontSize: 30, fontWeight: FontWeight.w900, textBas
 
 const kStyleText2 = TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700);
 
+const kStyleText3 = TextStyle(color: Colors.white, fontSize: 20);
+
 const kIconOpacity = Icons.opacity;
 
 const kIconBurger = Icons.lunch_dining;
