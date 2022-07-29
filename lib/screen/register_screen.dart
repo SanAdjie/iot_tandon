@@ -74,13 +74,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         image: Image.asset("images/cakra2.png"),
                         buttons: [
                           DialogButton(
-                            child: Text(
-                              "Baik",
-                              style: kStyleText3,
-                            ),
                             onPressed: () => Navigator.pop(context),
                             color: kBGBiru,
                             radius: BorderRadius.circular(10.0),
+                            child: const Text(
+                              "Baik",
+                              style: kStyleText3,
+                            ),
                           ),
                         ],
                       ).show();

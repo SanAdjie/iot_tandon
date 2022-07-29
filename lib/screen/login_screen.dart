@@ -101,13 +101,13 @@ class _RegisterState extends State<LoginScreen> {
                               image: Image.asset("images/cakra.png"),
                               buttons: [
                                 DialogButton(
-                                  child: Text(
-                                    "Baik",
-                                    style: kStyleText3,
-                                  ),
                                   onPressed: () => Navigator.pop(context),
                                   color: kBGBiru,
                                   radius: BorderRadius.circular(10.0),
+                                  child: const Text(
+                                    "Baik",
+                                    style: kStyleText3,
+                                  ),
                                 ),
                               ],
                             ).show();
