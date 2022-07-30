@@ -1,15 +1,19 @@
 
 class DistanceLogic{
   //Property
-  int valueJarak;
-  int maksimumValueJarak;
+  double valueJarak;
+  double maksimumValueJarak;
+  double hasil = 0;
+
 
   //Constructor
 
   DistanceLogic(this.valueJarak, this.maksimumValueJarak);
 
   //Methods
-  double outputVolume(){
-    return maksimumValueJarak-((valueJarak/maksimumValueJarak)*maksimumValueJarak);
+  int outputVolume(){
+    hasil = maksimumValueJarak-((valueJarak/maksimumValueJarak)*maksimumValueJarak);
+    print(hasil.toInt());
+    return hasil.toInt();
   }
 }

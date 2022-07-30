@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iot_tandon/component/reusable_customclipper.dart';
+import 'package:iot_tandon/logic/distance_logic.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
 import 'package:iot_tandon/component/reusable_carddetail.dart';
@@ -9,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class CardDetailScreen extends StatefulWidget {
 
   static String id = "CardDetailScreen";
+
   @override
   State<CardDetailScreen> createState() => _CardDetailScreenState();
 }
@@ -16,12 +18,11 @@ class CardDetailScreen extends StatefulWidget {
 class _CardDetailScreenState extends State<CardDetailScreen> {
 
   //Property
-  late var dataJarak;
+  int dataJarak = 0;
 
   final akun = FirebaseAuth.instance;
 
   //Method
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,12 +40,11 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                           color: kBGBiru,
                           child: Column(
                             children: <Widget>[
-                              ReusableCard(iconLead: Icon(Icons.device_thermostat, size: 40),
-                                title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: () async{
-                                await akun.signOut();
+                              ReusableCard(iconLead: const Icon(Icons.device_thermostat, size: 40),
+                                title: "Suhu", iconTrail: Icons.logout, description: "25°C", ontap: () async{
                                 Navigator.pop(context);
                                 },),
-                              ReusableCard(iconLead: Icon(Icons.sunny, size: 40),
+                              ReusableCard(iconLead: const Icon(Icons.sunny, size: 40),
                                 title: "Cuaca", description: "Hujan",)
                             ],
                           ),
@@ -53,7 +53,7 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                       ClipPath(
                         clipper: CustomClipperSaya(),
                         child: Container(
-                          color: Color(0x26F3A953),
+                          color: const Color(0x26F3A953),
                           height: MediaQuery.of(context).size.height*0.11,
                         ),
                       )
@@ -65,12 +65,16 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
-                    child: Text("Tandon Alpha", style: kStyleText1)),
+                    padding: const EdgeInsets.fromLTRB(0, 20, 20, 20),
+                    child: const Text("Tandon Alpha", style: kStyleText1)),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "volume", status: "59%", icon: Icons.opacity, onPress: (){
+                      child: ReusableCardDetail(tulisanBawah: "volume", status: "$dataJarak%", icon: Icons.opacity, onPress: () async{
                         Network dataRealtime = Network("https://tandon-iot-b75b0-default-rtdb.asia-southeast1.firebasedatabase.app/Tandon-IoT.json");
-                        dataRealtime.getData();
+                        var dataVolume = await dataRealtime.ambilData();
+                        setState((){
+                          DistanceLogic dataAir = DistanceLogic(dataVolume, 210);
+                          dataJarak = dataAir.outputVolume();
+                        });
                       },)),
                   Expanded(
                       child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining,)),

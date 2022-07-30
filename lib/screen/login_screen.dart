@@ -17,7 +17,7 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _RegisterState();
 }
 
-class _RegisterState extends State<LoginScreen> {
+class _RegisterState extends State<LoginScreen> with SingleTickerProviderStateMixin{
 
   late String email;
   late String password;
@@ -26,9 +26,28 @@ class _RegisterState extends State<LoginScreen> {
   final akun = FirebaseAuth.instance;
   late final user;
 
+  late AnimationController controller;
+  late Animation animasi;
+  late num animasiValue;
+  int animasiValueInt = 0;
+
   @override
   void initState() {
     super.initState();
+
+    controller = AnimationController(
+        duration: const Duration(seconds: 3),
+        vsync: this,
+      upperBound: 1
+    );
+    controller.forward(from: 0);
+    animasi = CurvedAnimation(parent: controller, curve: Curves.easeInOutExpo);
+    controller.addListener((){
+      setState((){
+        animasiValue = animasi.value*500;
+        animasiValueInt = animasiValue.toInt();
+      });
+    });
   }
 
 
@@ -44,7 +63,7 @@ class _RegisterState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Expanded(
-                  flex: 1,
+                  flex: animasiValueInt*1,
                   child: Container(
                     decoration: BoxDecoration(
                       color: kBGBiru,
@@ -54,7 +73,7 @@ class _RegisterState extends State<LoginScreen> {
                       )),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 1000,
                   child: Container(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: Column(

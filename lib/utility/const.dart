@@ -6,6 +6,8 @@ const kBGHitam = Colors.black;
 
 const kBGAbu2 = Color(0xFFF2F3F3);
 
+const kBGAbu3 = Colors.black38;
+
 const kBGPutih = Color(0xFFFFFFFF);
 
 const kSpasi1 = SizedBox(height: 10);

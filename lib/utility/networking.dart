@@ -15,6 +15,8 @@ class Network{
 
     if(respon.statusCode == 200){
       data = respon.body;
+      //TODO : DATA TERLALU SPESIFIK.
+      //TODO : DATA PERLU DIAMBIL MELALUI STREAM (SNAPSHOT), BUKAN JSON.
       return JsonDecoder().convert(data)['Tandon_1']['Jarak']['data'];
     }else{
       print(respon.statusCode);

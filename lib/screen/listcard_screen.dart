@@ -5,6 +5,9 @@ import 'package:iot_tandon/screen/carddetail_screen.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
 import 'package:iot_tandon/component/reusable_listcard.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:iot_tandon/screen/login_screen.dart';
+
 
 class ListcardScreen extends StatefulWidget {
 
@@ -38,8 +41,22 @@ class _ListCardState extends State<ListcardScreen> {
                         children: <Widget>[
                           ReusableCard(iconLead: Icon(Icons.device_thermostat, size: 40),
                             title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: (){
-                            Navigator.pop(context);
-                            //TODO : AUTH LOGOUT
+                              Alert(
+                                context: context,
+                                title: "Tunggu!",
+                                desc: "Kamu yakin ingin keluar ?",
+                                image: Image.asset("images/cakra3.png"),
+                                buttons: [
+                                  DialogButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      color: kBGBiru,
+                                      child: const Text( "Engga", style: kStyleText3)),
+                                  DialogButton(
+                                      onPressed: () => Navigator.popAndPushNamed(context, LoginScreen.id),
+                                      color: kBGAbu3,
+                                      child: const Text( "Yap", style: kStyleText3)),
+                                ],
+                              ).show();
                             },),
                           ReusableCard(iconLead: Icon(Icons.sunny, size: 40),
                             title: "Cuaca", description: "Hujan",)
