@@ -39,7 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Container(
       color: kBGBiru,
       child: Center(
-        child: Image.asset("images/logoUM.png",width: 230,height: 200))
+        child: Image.asset("images/logoUM.png", width: 230, height: 200))
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const kBGBiru = Color(0xFF366ED8);
 
+const kBGBiru2 = Color(0xFA366ED8);
+
 const kBGHitam = Colors.black;
 
 const kBGAbu2 = Color(0xFFF2F3F3);
@@ -9,6 +11,8 @@ const kBGAbu2 = Color(0xFFF2F3F3);
 const kBGAbu3 = Colors.black38;
 
 const kBGPutih = Color(0xFFFFFFFF);
+
+const kBGBayangan = Color(0x26F3A953);
 
 const kSpasi1 = SizedBox(height: 10);
 
@@ -23,6 +27,8 @@ const kStyleText1 = TextStyle(fontSize: 30, fontWeight: FontWeight.w900, textBas
 const kStyleText2 = TextStyle(fontSize: 18.0, fontWeight: FontWeight.w700);
 
 const kStyleText3 = TextStyle(color: Colors.white, fontSize: 20);
+
+const kStyleText4 = TextStyle(color: Color(0xF0FFFFFF), fontSize: 22, fontWeight: FontWeight.w500);
 
 const kIconOpacity = Icons.opacity;
 

@@ -5,7 +5,6 @@ class DistanceLogic{
   double maksimumValueJarak;
   double hasil = 0;
 
-
   //Constructor
 
   DistanceLogic(this.valueJarak, this.maksimumValueJarak);

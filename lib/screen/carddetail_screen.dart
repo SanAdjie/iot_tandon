@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iot_tandon/component/reusable_customclipper.dart';
+import 'package:iot_tandon/database/database.dart';
 import 'package:iot_tandon/logic/distance_logic.dart';
 import 'package:iot_tandon/utility/const.dart';
 import 'package:iot_tandon/component/reusable_card.dart';
 import 'package:iot_tandon/component/reusable_carddetail.dart';
-import 'package:iot_tandon/utility/networking.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class CardDetailScreen extends StatefulWidget {
 
@@ -20,13 +21,35 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
   //Property
   int dataJarak = 0;
 
+  int arus = 0;
+  double hum = 0;
+  double jarak = 0;
+  int relay1 = 0;
+  int relay2 = 0;
+  String temp = "-";
+
+    //Snapshot Database
   final akun = FirebaseAuth.instance;
+  DatabaseReference ref = FirebaseDatabase.instance.ref();
+
+    //JSON Database
+  DatabaseIoT dataIoT = DatabaseIoT();
 
   //Method
+  updateDataIoTJSON() async{
+    var data = await dataIoT.getData();
+    setState((){
+      arus = data["Arus"]["data"];
+      jarak = data["Jarak"]["data"];
+      relay1 = data["Relay1"];
+      relay2 = data["Relay2"];
+      temp = data["Temp"]["data"].toString();
+    });
+  }
+
   @override
   void initState() {
     super.initState();
-    // TODO: AMBIL DATA CUACA
   }
 
   @override
@@ -47,7 +70,7 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                           child: Column(
                             children: <Widget>[
                               ReusableCard(iconLead: const Icon(Icons.device_thermostat, size: 40),
-                                title: "Suhu", iconTrail: Icons.logout, description: "25°C", ontap: () async{
+                                title: "Suhu", iconTrail: Icons.logout, description: "$temp°C", ontap: () async{
                                 Navigator.pop(context);
                                 },),
                               ReusableCard(iconLead: const Icon(Icons.sunny, size: 40),
@@ -75,25 +98,35 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                     child: const Text("Tandon Alpha", style: kStyleText1)),
                   Expanded(
                       child: ReusableCardDetail(tulisanBawah: "volume", status: "$dataJarak%", icon: Icons.opacity, onPress: () async{
-                        Network dataRealtime = Network("https://tandon-iot-b75b0-default-rtdb.asia-southeast1.firebasedatabase.app/Tandon-IoT.json");
-                        var dataVolume = await dataRealtime.ambilData();
+                        await updateDataIoTJSON();
                         setState((){
-                          DistanceLogic dataAir = DistanceLogic(dataVolume, 210);
+                          DistanceLogic dataAir = DistanceLogic(jarak, 100.0);
                           dataJarak = dataAir.outputVolume();
                         });
                       },)),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining, onPress: (){
+                      child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.heat_pump, onPress: (){
                         //TODO : GET DATA RELAY (INIT)
                         //TODO : SET DATA RELAY (BERI ALERT)
                       })),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "", status: "OFF", icon: Icons.memory, onPress: (){
+                      child: ReusableCardDetail(tulisanBawah: "", status: "OFF", icon: Icons.heat_pump, onPress: (){
                         //TODO : GET DATA RELAY (INIT)
                         //TODO : SET DATA RELAY (BERI ALERT)
                       }))
                 ],
-              ))
+              )),
+            GestureDetector(
+              onTap: (){},
+              child: Container(
+                color: kBGBiru2,
+                height: 50,
+                child: const Center(
+                  child: Text("Reset",
+                    style: kStyleText4),
+                ),
+              ),
+            )
           ],
         ),
       ),

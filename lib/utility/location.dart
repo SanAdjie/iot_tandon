@@ -12,7 +12,7 @@ class LokasiCuaca {
   String? error = null;
 
   //Method
-  void getLocation() async {
+  Future getLocation() async {
     try{
       gpsAktif = await Geolocator.isLocationServiceEnabled();
       if (!gpsAktif) {

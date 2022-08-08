@@ -8,6 +8,7 @@ import 'package:iot_tandon/component/reusable_listcard.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:iot_tandon/screen/login_screen.dart';
 import 'package:iot_tandon/utility/location.dart';
+import 'package:iot_tandon/logic/weather_logic.dart';
 
 
 class ListcardScreen extends StatefulWidget {
@@ -20,13 +21,28 @@ class ListcardScreen extends StatefulWidget {
 
 class _ListCardState extends State<ListcardScreen> {
 
-  LokasiCuaca cuaca = LokasiCuaca();
+  String suhu = "-";
+  String kondisiCuaca = "-";
+  String cuacaLokasi = "-";
+  LokasiCuaca lokasi = LokasiCuaca();
+  CuacaData cuaca = CuacaData();
+
+  updateDataCuaca() async{
+
+    await lokasi.getLocation();
+    var dataCuaca = await cuaca.getCuaca();
+
+    setState(() {
+      suhu = dataCuaca["main"]["temp"].toString();
+      kondisiCuaca = dataCuaca['weather'][0]["main"].toString();
+      cuacaLokasi = dataCuaca['name'];
+    });
+  }
 
   @override
-  void initState() {
+  void initState(){
     super.initState();
-
-    cuaca.getLocation();
+    updateDataCuaca();
   }
 
   @override
@@ -42,11 +58,10 @@ class _ListCardState extends State<ListcardScreen> {
               Expanded(
                 flex: 2,
                 child: GestureDetector(
-                  onTap: (){
-                      if(cuaca.error != null){
-                        setState(() {
-                          cuaca.getLocation();
-                          //TODO : ALERT PERLU DIBUAT DIREFAKTOR
+                  onTap: () async{
+                    await updateDataCuaca();
+                    setState((){
+                      if(lokasi.error != null){
                           Alert(
                             context: context,
                             title: "GPS Gagal",
@@ -64,9 +79,9 @@ class _ListCardState extends State<ListcardScreen> {
                               ),
                             ],
                           ).show();
-                        });
                       }
-                  },
+                    });
+                    },
                   child: Stack(
                     children: [
                       ClipPath(
@@ -77,7 +92,7 @@ class _ListCardState extends State<ListcardScreen> {
                         child: Column(
                           children: <Widget>[
                             ReusableCard(iconLead: Icon(Icons.device_thermostat, size: 40),
-                              title: "Suhu", iconTrail: Icons.logout, description: "25°C",ontap: (){
+                              title: "Suhu ($cuacaLokasi)", iconTrail: Icons.logout, description: "$suhu°C",ontap: (){
                                 Alert(
                                   context: context,
                                   title: "Tunggu!",
@@ -96,7 +111,7 @@ class _ListCardState extends State<ListcardScreen> {
                                 ).show();
                               },),
                             ReusableCard(iconLead: Icon(Icons.sunny, size: 40),
-                              title: "Cuaca", description: "Hujan",)
+                              title: "Cuaca ($cuacaLokasi)", description: kondisiCuaca,)
                           ],
                         ),
                         ),
@@ -104,7 +119,7 @@ class _ListCardState extends State<ListcardScreen> {
                       ClipPath(
                         clipper: CustomClipperSaya(),
                         child: Container(
-                          color: Color(0x26F3A953),
+                          color: kBGBayangan,
                           height: MediaQuery.of(context).size.height*0.11,
                         ),
                       )
@@ -128,12 +143,9 @@ class _ListCardState extends State<ListcardScreen> {
                             //TODO: DETAIL TANDON - Perlu Data Masing2
                             Navigator.pushNamed(context, CardDetailScreen.id);
                           },
-                              child: ReusableContentListCard(label: "Tandon Alpha", namaIcon: Icons.water))),
-                          Expanded(child: ReusableListCard(onPress: (){
-                            Navigator.pushNamed(context, CardDetailScreen.id);
-                            //TODO: DETAIL TANDON - Perlu Data Masing2
-                          },
-                              child: ReusableContentListCard(label: "Tandon Beta", namaIcon: Icons.water)))
+                              child: ReusableContentListCard(label: "Tandon Blitar", namaIcon: Icons.water))),
+                          Expanded(child: ReusableListCard(onPress: (){},
+                              child: ReusableContentListCard(label: "Kosong", namaIcon: Icons.add)))
                         ],
                       ),
                     ),
@@ -141,16 +153,10 @@ class _ListCardState extends State<ListcardScreen> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          Expanded(child: ReusableListCard(onPress: (){
-                            Navigator.pushNamed(context, CardDetailScreen.id);
-                            //TODO: DETAIL TANDON - Perlu Data Masing2
-                          },
-                              child: ReusableContentListCard(label: "Tandon Charlie", namaIcon: Icons.water))),
-                          Expanded(child: ReusableListCard(onPress: (){
-                            Navigator.pushNamed(context, CardDetailScreen.id);
-                            //TODO: DETAIL TANDON - Perlu Data Masing2
-                          },
-                              child: ReusableContentListCard(label: "Tandon Delta", namaIcon: Icons.water)))
+                          Expanded(child: ReusableListCard(onPress: (){},
+                              child: ReusableContentListCard(label: "Kosong", namaIcon: Icons.add))),
+                          Expanded(child: ReusableListCard(onPress: (){},
+                              child: ReusableContentListCard(label: "Kosong", namaIcon: Icons.add)))
                         ],
                       ),
                     ),
