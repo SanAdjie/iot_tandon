@@ -31,6 +31,9 @@ class _RegisterState extends State<LoginScreen> with SingleTickerProviderStateMi
   late num animasiValue;
   int animasiValueInt = 0;
 
+  //cuaca.permission;
+
+
   @override
   void initState() {
     super.initState();

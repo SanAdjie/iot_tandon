@@ -13,6 +13,7 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
 
+
   @override
   void initState(){
     super.initState();
@@ -22,8 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       setState((){});
     });
 
-
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () async{
       Navigator.popAndPushNamed(context, LoginScreen.id);}
     );
   }

@@ -24,6 +24,12 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
 
   //Method
   @override
+  void initState() {
+    super.initState();
+    // TODO: AMBIL DATA CUACA
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -77,9 +83,15 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                         });
                       },)),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining,)),
+                      child: ReusableCardDetail(tulisanBawah: "", status: "ON ", icon: Icons.lunch_dining, onPress: (){
+                        //TODO : GET DATA RELAY (INIT)
+                        //TODO : SET DATA RELAY (BERI ALERT)
+                      })),
                   Expanded(
-                      child: ReusableCardDetail(tulisanBawah: "", status: "OFF", icon: Icons.memory,))
+                      child: ReusableCardDetail(tulisanBawah: "", status: "OFF", icon: Icons.memory, onPress: (){
+                        //TODO : GET DATA RELAY (INIT)
+                        //TODO : SET DATA RELAY (BERI ALERT)
+                      }))
                 ],
               ))
           ],

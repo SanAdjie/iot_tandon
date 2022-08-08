@@ -28,6 +28,8 @@ dependencies:
 
   rflutter_alert: ^2.0.4
 
+  geolocator: ^9.0.1
+
   shared_preferences: ^2.0.15
 
 dev_dependencies:
