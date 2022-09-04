@@ -8,5 +8,8 @@ UI/UX (Figma) : https://www.figma.com/file/5LSLZ9Uvj5KnZsDMbwyozT/Tandon-IoT?nod
 
 #Berita 
 Tim DTE Fakultas Teknik UM; Kembangkan IoT, Aliri Sawah Otomatis
-https://malangposcomedia.id/wp-content/uploads/2022/08/01-1068x601.jpg![image](https://user-images.githubusercontent.com/53648542/188296397-50e96019-a183-466d-9020-8df593169162.png)
+https://malangposcomedia.id/tim-dte-fakultas-teknik-um-kembangkan-iot
+
+https://malangposcomedia.id/wp-content/uploads/2022/08/01-1068x601.jpg![image](https://user-images.githubusercontent.com/53648542/188296428-48217bfd-9b90-4b8f-8dee-d33d8de7b489.png)
+
  
